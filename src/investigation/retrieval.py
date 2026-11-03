@@ -4,7 +4,6 @@ This small synonym encoder is transparent, not a pretrained language model.
 Use SentenceEmbeddings for learned semantic embeddings (optional download).
 """
 import hashlib
-import json
 import re
 import sqlite3
 import numpy as np

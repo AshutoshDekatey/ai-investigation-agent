@@ -1,0 +1,5 @@
+[
+ {"id":"POL-SETTLED","title":"Completed payments","text":"FICTIONAL: A settled or completed payment is recorded as successful. Recommend verifying beneficiary receipt and investigating the dispute. Do not automatically refund, retry, or assert beneficiary receipt. Human review is required."},
+ {"id":"POL-FAILED","title":"Failed payments","text":"FICTIONAL: A failed or declined payment did not complete according to the transaction record. Recommend checking for a debit and reconciling any debit before considering a new payment. Do not retry or refund automatically. Human review is required."},
+ {"id":"POL-UNCERTAIN","title":"Unresolved payments","text":"FICTIONAL: A pending, processing, unknown, or missing payment has unresolved finality. Recommend manual reconciliation and obtaining authoritative final status. Never infer settlement or failure, retry, or refund. Human review is required."}
+]

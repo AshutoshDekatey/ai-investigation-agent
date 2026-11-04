@@ -1,0 +1,6 @@
+[
+ {"id":"PAY-001","status":"settled","amount":"125.50","currency":"GBP","updated_at":"2026-10-01T10:00:00Z","ledger_reference":"SYN-LEDGER-001"},
+ {"id":"PAY-002","status":"failed","amount":"42.00","currency":"GBP","updated_at":"2026-10-01T11:00:00Z","ledger_reference":"SYN-LEDGER-002"},
+ {"id":"PAY-003","status":"pending","amount":"80.00","currency":"GBP","updated_at":"2026-10-01T12:00:00Z","ledger_reference":"SYN-LEDGER-003"},
+ {"id":"PAY-004","status":"unknown","amount":"19.95","currency":"GBP","updated_at":"2026-10-01T13:00:00Z","ledger_reference":"SYN-LEDGER-004"}
+]

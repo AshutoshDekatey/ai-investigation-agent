@@ -1,0 +1,7 @@
+[
+ {"id":"PAY-001","status":"settled","policy":"POL-SETTLED","phrase":"beneficiary"},
+ {"id":"PAY-002","status":"failed","policy":"POL-FAILED","phrase":"debit"},
+ {"id":"PAY-003","status":"pending","policy":"POL-UNCERTAIN","phrase":"reconciliation"},
+ {"id":"PAY-004","status":"unknown","policy":"POL-UNCERTAIN","phrase":"reconciliation"},
+ {"id":"NOT-FOUND","status":"missing","policy":"POL-UNCERTAIN","phrase":"reconciliation"}
+]

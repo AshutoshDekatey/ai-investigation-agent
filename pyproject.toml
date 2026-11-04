@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-investigation-agent"
-version = "0.1.0"
+version = "0.2.0"
 description = "Read-only, evidence-based synthetic payment investigations"
 requires-python = ">=3.11"
-dependencies = ["langgraph>=1.0,<2", "pydantic>=2.10,<3", "numpy>=2,<3", "openai>=2,<3"]
+dependencies = ["langgraph>=1.0,<2", "pydantic>=2.10,<3", "numpy>=2,<3", "openai>=2,<3", "fastapi>=0.115,<0.116", "uvicorn>=0.34,<1", "httpx>=0.28,<0.29", "anyio>=4.9,<4.10", "qdrant-client>=1.14,<1.15", "rank-bm25>=0.2.2,<1", "sentence-transformers>=3,<6", "torch>=2.5,<3", "langgraph-checkpoint-sqlite>=3,<4", "langgraph-checkpoint-postgres>=3,<4", "psycopg[binary,pool]>=3.2,<4"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10"]
@@ -15,6 +15,7 @@ semantic = ["sentence-transformers>=3,<6"]
 
 [project.scripts]
 investigate = "investigation.cli:main"
+payments = "investigation.platform.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -24,3 +25,11 @@ investigation = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

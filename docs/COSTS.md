@@ -1,0 +1,9 @@
+# Costs and paid-call policy
+
+Default operation uses local open-source PostgreSQL, Qdrant, CPU embeddings and deterministic assessment. No managed vector database or paid LLM is required. Initial dependency/model downloads require bandwidth/storage, not API credits. Infrastructure hosting can still have its own cost.
+
+No paid API calls have been executed in this project. ChatGPT subscriptions do not pay for OpenAI API access. Obtain explicit approval before a live run. `live-eval` requires `--allow-paid-api`, current numeric input/output USD-per-million rates and a case limit between 1 and 20. No model-as-judge loop exists. Provider retries are disabled; output is capped at 400 tokens and the per-call timeout is 20 seconds. A timeout is not proof of zero billing.
+
+Preflight estimate: budget roughly 8,000 input tokens and 400 output tokens per report (actual tokenization/provider overhead varies). For N cases, estimate USD = N * (8000 * input_rate + 400 * output_rate) / 1,000,000. Obtain current provider prices; no price is hardcoded. For 10 cases this means approximately 80,000 input and at most 4,000 output tokens. This is an estimate, not a hard provider spending cap. Use account budget limits as well.
+
+After each call, actual prompt/completion token usage is stored and cost is estimated from supplied rates. Failed calls store unknown cost and require provider-billing reconciliation. Live reports are advisory summaries with no independent groundedness score. LangSmith cloud tracing is separately optional and may have its own charges. Never place API credentials in scripts, reports, source files or PR bodies.

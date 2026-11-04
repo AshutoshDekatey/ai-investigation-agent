@@ -1,0 +1,97 @@
+{
+  "health": 200,
+  "openapi": 200,
+  "unauthorized": 401,
+  "investigation": 200,
+  "report_read": 200,
+  "new_process_checkpoint_resume": "passed",
+  "report": {
+    "investigation_id": "ab68034e-cccc-4936-9eb5-b0ba84136896",
+    "transaction_id": "SIM-006",
+    "outcome": "uncertain",
+    "recommendation": "Escalate to reconciliation for authoritative records or applicable policy; no financial action is authorized.",
+    "human_review": true,
+    "route": "reconciliation",
+    "uncertainty": [
+      "Fictional records only; merchant receipt and live balances are unverified."
+    ],
+    "citations": [
+      {
+        "chunk_id": "POL-CONFLICT:v2:0",
+        "policy_id": "POL-CONFLICT",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. When transaction state and settlement ledger disagree, classify the outcome as uncertain and route to reconciliation.",
+        "source": "policy://POL-CONFLICT:v2:0"
+      }
+    ],
+    "records": {
+      "transaction": {
+        "id": "SIM-006",
+        "status": "failed",
+        "amount": "100.00",
+        "currency": "GBP",
+        "recorded_at": "2026-11-03T12:00:00Z",
+        "policy_topic": null
+      },
+      "ledger": {
+        "status": "settled",
+        "amount": "100.00",
+        "currency": "GBP",
+        "debit_count": 1,
+        "reference": "SYN-LEDGER-SIM-006"
+      }
+    },
+    "tool_events": [
+      {
+        "tool": "transactions",
+        "attempt": 1,
+        "outcome": "ok"
+      },
+      {
+        "tool": "ledger",
+        "attempt": 1,
+        "outcome": "ok"
+      }
+    ],
+    "retrieved": [
+      {
+        "chunk_id": "POL-MERCHANT:v2:0",
+        "policy_id": "POL-MERCHANT",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. Customer or merchant reports are allegations. Recorded settlement does not independently prove merchant receipt.",
+        "source": "policy://POL-MERCHANT:v2:0"
+      },
+      {
+        "chunk_id": "POL-CONFLICT:v2:0",
+        "policy_id": "POL-CONFLICT",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. When transaction state and settlement ledger disagree, classify the outcome as uncertain and route to reconciliation.",
+        "source": "policy://POL-CONFLICT:v2:0"
+      },
+      {
+        "chunk_id": "POL-OUTAGE:v2:0",
+        "policy_id": "POL-OUTAGE",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. Unavailable banking tools require bounded retry then escalation. Do not synthesize substitute transaction evidence.",
+        "source": "policy://POL-OUTAGE:v2:0"
+      },
+      {
+        "chunk_id": "POL-TIMEOUT:v2:0",
+        "policy_id": "POL-TIMEOUT",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. A gateway timeout does not prove failure. Reconcile the ledger and request final status. Never retry automatically.",
+        "source": "policy://POL-TIMEOUT:v2:0"
+      },
+      {
+        "chunk_id": "POL-SETTLED:v2:0",
+        "policy_id": "POL-SETTLED",
+        "version": 2,
+        "quote": "FICTIONAL PAYMENT POLICY. A settled transaction requires a matching final settlement ledger entry. Confirm recorded success only when both agree; investigate merchant nonreceipt separately.",
+        "source": "policy://POL-SETTLED:v2:0"
+      }
+    ],
+    "latency_ms": 26.439,
+    "embedding_mode": "test-only-hash",
+    "llm": null
+  }
+}

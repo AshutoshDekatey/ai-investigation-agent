@@ -1,10 +1,50 @@
-name: tests
+name: offline-platform
 on: [push, pull_request]
 jobs:
   offline:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.4
+        env:
+          POSTGRES_USER: investigation
+          POSTGRES_DB: investigation
+          POSTGRES_PASSWORD: ci-synthetic-only
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U investigation"
+          --health-interval 3s --health-timeout 3s --health-retries 20
+      qdrant:
+        image: qdrant/qdrant:v1.14.1
+        ports: ["6333:6333"]
+    env:
+      TEST_EMBEDDINGS: "1"
+      BANK_API_TOKEN: ci-synthetic-bank
+      ANALYST_API_TOKEN: ci-synthetic-analyst
+      DATABASE_URL: postgresql://investigation:ci-synthetic-only@127.0.0.1:5432/investigation
+      QDRANT_URL: http://127.0.0.1:6333
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
       - run: uv sync --frozen --extra dev
+      - run: uv run --frozen python -m compileall -q src
       - run: uv run --frozen --extra dev pytest -q
+      - name: Start APIs and verify running services
+        run: |
+          uv run --frozen uvicorn investigation.platform.bank:app --port 8001 > /tmp/bank.log 2>&1 &
+          uv run --frozen payments ingest
+          uv run --frozen uvicorn investigation.platform.api:app --port 8000 > /tmp/api.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/health; then break; fi
+            sleep 1
+          done
+          uv run --frozen python scripts/service_smoke.py
+          uv run --frozen payments evaluate --output reports/ci.json
+          uv run --frozen python -c 'import json; r=json.load(open("reports/ci.json")); assert r["metrics"]["recommendation_correct"] >= 0.8; assert r["metrics"]["unsafe_action_violation"] == 0'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-platform-reports
+          path: reports/

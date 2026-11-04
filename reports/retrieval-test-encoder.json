@@ -1,0 +1,923 @@
+{
+  "embedding_mode": "test-only-hash",
+  "judge": "deterministic fixture assertions, not an LLM evaluation",
+  "limitations": [
+    "60 cases repeat 12 scenario templates, not 60 independent business scenarios.",
+    "Groundedness is a citation/record consistency proxy, not an independent semantic judge.",
+    "Retrieval relevance is binary against one expected policy per case.",
+    "Tool-timeout benchmark simulates HTTP 503; actual timeout exception tested separately."
+  ],
+  "llm_tokens": 0,
+  "llm_cost_usd": 0,
+  "metrics": {
+    "cases": 60,
+    "retrieval_scorable": 55,
+    "recall_at_5": 0.8181818181818182,
+    "mrr": 0.6136363636363636,
+    "mean_latency_ms": 5.2755833333333335,
+    "p95_latency_ms": 6.703
+  },
+  "failures": [],
+  "results": [
+    {
+      "case_id": "CASE-001",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "latency_ms": 9.897
+    },
+    {
+      "case_id": "CASE-002",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "latency_ms": 5.913
+    },
+    {
+      "case_id": "CASE-003",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-MISSING:v2:0"
+      ],
+      "latency_ms": 6.573
+    },
+    {
+      "case_id": "CASE-004",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "latency_ms": 5.412
+    },
+    {
+      "case_id": "CASE-005",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 4.54
+    },
+    {
+      "case_id": "CASE-006",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.661
+    },
+    {
+      "case_id": "CASE-007",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.951
+    },
+    {
+      "case_id": "CASE-008",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "latency_ms": 4.726
+    },
+    {
+      "case_id": "CASE-009",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 5.095
+    },
+    {
+      "case_id": "CASE-010",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "latency_ms": 4.899
+    },
+    {
+      "case_id": "CASE-011",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "latency_ms": 4.496
+    },
+    {
+      "case_id": "CASE-012",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "latency_ms": 4.699
+    },
+    {
+      "case_id": "CASE-013",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "latency_ms": 4.88
+    },
+    {
+      "case_id": "CASE-014",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "latency_ms": 6.274
+    },
+    {
+      "case_id": "CASE-015",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-FRAUD:v2:0"
+      ],
+      "latency_ms": 4.481
+    },
+    {
+      "case_id": "CASE-016",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "latency_ms": 4.974
+    },
+    {
+      "case_id": "CASE-017",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 4.994
+    },
+    {
+      "case_id": "CASE-018",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 5.338
+    },
+    {
+      "case_id": "CASE-019",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.521
+    },
+    {
+      "case_id": "CASE-020",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "latency_ms": 5.2
+    },
+    {
+      "case_id": "CASE-021",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 4.615
+    },
+    {
+      "case_id": "CASE-022",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "latency_ms": 4.763
+    },
+    {
+      "case_id": "CASE-023",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "latency_ms": 10.975
+    },
+    {
+      "case_id": "CASE-024",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "latency_ms": 6.703
+    },
+    {
+      "case_id": "CASE-025",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "latency_ms": 6.693
+    },
+    {
+      "case_id": "CASE-026",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "latency_ms": 5.542
+    },
+    {
+      "case_id": "CASE-027",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 5.088
+    },
+    {
+      "case_id": "CASE-028",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "latency_ms": 6.177
+    },
+    {
+      "case_id": "CASE-029",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 5.929
+    },
+    {
+      "case_id": "CASE-030",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.873
+    },
+    {
+      "case_id": "CASE-031",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 5.176
+    },
+    {
+      "case_id": "CASE-032",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "latency_ms": 4.76
+    },
+    {
+      "case_id": "CASE-033",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 4.957
+    },
+    {
+      "case_id": "CASE-034",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "latency_ms": 5.127
+    },
+    {
+      "case_id": "CASE-035",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "latency_ms": 4.85
+    },
+    {
+      "case_id": "CASE-036",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "latency_ms": 4.82
+    },
+    {
+      "case_id": "CASE-037",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "latency_ms": 5.292
+    },
+    {
+      "case_id": "CASE-038",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "latency_ms": 5.341
+    },
+    {
+      "case_id": "CASE-039",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 8.671
+    },
+    {
+      "case_id": "CASE-040",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "latency_ms": 5.197
+    },
+    {
+      "case_id": "CASE-041",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 4.822
+    },
+    {
+      "case_id": "CASE-042",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.657
+    },
+    {
+      "case_id": "CASE-043",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 5.075
+    },
+    {
+      "case_id": "CASE-044",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "latency_ms": 5.199
+    },
+    {
+      "case_id": "CASE-045",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 5.232
+    },
+    {
+      "case_id": "CASE-046",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "latency_ms": 5.146
+    },
+    {
+      "case_id": "CASE-047",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "latency_ms": 4.779
+    },
+    {
+      "case_id": "CASE-048",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "latency_ms": 4.353
+    },
+    {
+      "case_id": "CASE-049",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "latency_ms": 4.419
+    },
+    {
+      "case_id": "CASE-050",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "latency_ms": 4.702
+    },
+    {
+      "case_id": "CASE-051",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-FRAUD:v2:0"
+      ],
+      "latency_ms": 4.407
+    },
+    {
+      "case_id": "CASE-052",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "latency_ms": 5.659
+    },
+    {
+      "case_id": "CASE-053",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "latency_ms": 5.017
+    },
+    {
+      "case_id": "CASE-054",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 4.523
+    },
+    {
+      "case_id": "CASE-055",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "latency_ms": 3.911
+    },
+    {
+      "case_id": "CASE-056",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "latency_ms": 4.611
+    },
+    {
+      "case_id": "CASE-057",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "latency_ms": 4.529
+    },
+    {
+      "case_id": "CASE-058",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "latency_ms": 4.489
+    },
+    {
+      "case_id": "CASE-059",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "latency_ms": 4.358
+    },
+    {
+      "case_id": "CASE-060",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "latency_ms": 4.574
+    }
+  ]
+}

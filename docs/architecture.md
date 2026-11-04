@@ -9,3 +9,6 @@ All three tiny policies are retrieved in v0.1 so a deterministic status rule can
 Optional OpenAI structured output summarizes the deterministic report. It cannot change authoritative fields; its prose remains unverified advisory text. Errors retain the offline result and add uncertainty. No dispute narrative is accepted in v0.1, no tools are exposed to the LLM, and no action executor exists. This is decision support, not automated banking adjudication.
 
 Data lives in `src/investigation/data`; evaluation expectations live in `evals/cases.json`. The SQLite index is rebuilt per CLI process. No accounts, PII or credentials are stored.
+
+
+For the v0.2 platform see [ARCHITECTURE.md](ARCHITECTURE.md). This document describes v0.1.

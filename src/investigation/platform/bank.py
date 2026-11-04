@@ -2,7 +2,7 @@
 import os
 import secrets
 from fastapi import FastAPI, Header, HTTPException
-from investigation.store import load_data
+from .data import load_data
 
 app = FastAPI(title="Fictional read-only banking simulator")
 ROWS = load_data("bank.json")

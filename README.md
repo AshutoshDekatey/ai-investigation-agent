@@ -32,4 +32,4 @@ The benchmark repeats 12 scenario templates five times; it is a regression set, 
 
 [Architecture](docs/ARCHITECTURE.md) · [setup](docs/SETUP.md) · [RAG design](docs/RAG_DESIGN.md) · [tests](docs/TESTING.md) · [costs](docs/COSTS.md) · [troubleshooting](docs/TROUBLESHOOTING.md) · [v0.2](docs/versions/v0.2.md)
 
-The v0.1 `investigate PAY-001` command and its tests are retained for compatibility; it uses the original small offline baseline. Use `payments` for v0.2.
+The `payments` CLI is the sole active implementation. The legacy v0.1 runtime, fixtures and `investigate` command have been removed. Earlier releases remain documented in Git history and version notes.

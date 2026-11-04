@@ -4,7 +4,7 @@ import statistics
 import time
 from pathlib import Path
 from .schemas import Intake
-from investigation.store import load_data
+from .data import load_data
 
 
 def evaluate(engine, cases, retrieval_only=False):

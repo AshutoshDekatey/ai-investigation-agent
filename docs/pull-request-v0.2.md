@@ -1,10 +1,10 @@
 ## Problem and behavior
-Upgrade the fictional payment investigation baseline into a service that calls a read-only bank simulator, reconciles transaction and ledger records, retrieves effective approved policies and returns a cited recommendation with mandatory human review. Preserves v0.1 and its Git history.
+Upgrade the fictional payment investigation baseline into a service that calls a read-only bank simulator, reconciles transaction and ledger records, retrieves effective approved policies and returns a cited recommendation with mandatory human review. Retires the legacy v0.1 runtime, CLI, fixtures and tests while preserving its Git history and historical version notes.
 
 Adds FastAPI analyst authentication, a nine-node LangGraph with PostgreSQL checkpoints and report storage, bounded HTTP tools, policy metadata/chunking, default Sentence Transformers embeddings, Qdrant/BM25 hybrid search, Docker Compose, a 60-case benchmark, CLI, opt-in OpenAI-compatible advisory summaries, CI and detailed runbook/security/cost documentation.
 
 ## Verified
-- 30 offline tests passed, including interrupted-checkpoint recovery, API authorization, effective-date filtering, adversarial retrieved instructions, read-only boundaries and paid-mode guards.
+- The original combined suite had 30 passing tests; the active-only suite now has **18 passing tests** after retiring 12 legacy-only tests, including interrupted-checkpoint recovery, API authorization, effective-date filtering, adversarial retrieved instructions, read-only boundaries and paid-mode guards.
 - Running uvicorn banking and investigation APIs, Qdrant 1.14.1 and PostgreSQL 17.4 exercised through real HTTP and persisted records.
 - Separate CLI process reloaded a PostgreSQL checkpoint.
 - Actual 60-case **test-encoder** evaluation: 60/60 expected outcome categories, 100% citation/version/source-record checks, zero tested unsafe-action violations. Natural-language Recall@5 0.8182, MRR 0.6136 across 55 scorable cases.
@@ -17,4 +17,4 @@ Adds FastAPI analyst authentication, a nine-node LangGraph with PostgreSQL check
 - Cross-encoder reranking and independent semantic judges are deferred pending learned retrieval measurements. Single-process API, role-level auth, bounded corpus and concise fictional policies are prototype limitations.
 
 ## Reproduce
-Follow docs/RUNBOOK.md for exact service, ingestion, learned-model access, evaluation and cleanup commands. Allow approved model-host access, rerun learned ingestion/evaluation, and review those results before claiming semantic readiness. No merge or environment publication requested automatically.
+Follow docs/RUNBOOK.md for exact service, ingestion, learned-model access, evaluation and cleanup commands. Allow approved model-host access, rerun learned ingestion/evaluation, and review those results before claiming semantic readiness. The user explicitly authorized merging this release into main. Environment publication is not part of this change.

@@ -2,7 +2,7 @@
 
 Validated in Codex Cloud with Python 3.12, CPU torch and locked dependencies. Commands executed against this checkout; no paid LLM calls or real financial operations occurred.
 
-- Complete Pytest suite: **30 passed** (v0.1 regression plus v0.2 tests). TestClient emits timeout-argument deprecation warnings; its in-process transport is distinct from the separately tested real timeout exception path.
+- Before legacy retirement, the combined suite had **30 passing tests**. After removing the 12 legacy-only tests, the active platform suite has **18 passing tests**, including the 60-case benchmark. The installed `payments` CLI works and the legacy `investigate` executable is absent. TestClient emits timeout-argument deprecation warnings; its in-process transport is distinct from the separately tested real timeout exception path.
 - Docker Compose: Qdrant 1.14.1 and PostgreSQL 17.4 actually started with persistent named volumes and loopback ports.
 - Banking uvicorn service: actual authenticated transaction/ledger HTTP GETs executed during evaluations.
 - Investigation uvicorn service: health and OpenAPI returned 200; unauthenticated investigation returned 401; authenticated conflict case returned 200 with uncertainty; persisted report read returned 200.
@@ -38,4 +38,4 @@ The report retains per-case rankings, tool events, expected/actual outcome and f
 - **Reranking and independent semantic judging:** no measured benefit available, so no reranker or fabricated judge score is supplied.
 - Prototype policies are concise and fixtures correlated. This is not production accuracy, banking compliance, comprehensive DLP, tenant isolation or completed analyst approvals.
 
-No environment was published or merged automatically. See RUNBOOK.md for exact reproduction and the remaining learned/live verification commands.
+Environment publication is separate from the user-authorized Git merge. See RUNBOOK.md for exact reproduction and the remaining learned/live verification commands.

@@ -7,10 +7,10 @@ All records, credentials generated below, and policies belong to a fictional loc
 ```sh
 git clone https://github.com/AshutoshDekatey/ai-investigation-agent.git
 cd ai-investigation-agent
-git switch feat/payment-platform-v0.2
+git switch main
 ```
 
-After the upgrade is merged, use `main` instead. Existing checkouts: `git fetch origin` before switching branches; preserve your local changes.
+The active release is on `main`. Existing checkouts: `git fetch origin` before switching branches; preserve your local changes.
 
 ## 2. Python and dependencies
 

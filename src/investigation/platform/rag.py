@@ -7,7 +7,7 @@ from pathlib import Path
 from pydantic import BaseModel, Field, model_validator
 from qdrant_client import QdrantClient, models
 from rank_bm25 import BM25Okapi
-from investigation.store import load_data
+from .data import load_data
 
 MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 # Immutable model revision; downloads are TLS verified by Hugging Face.

@@ -12,4 +12,4 @@ Neither API accepts arbitrary tool names, URLs, SQL, financial actions or approv
 
 Logs include only investigation ID, outcome and policy IDs. Pydantic redaction is a basic safeguard, not a production DLP guarantee. Raw fictional evidence persists in reports/checkpoints. LangSmith's automatic graph instrumentation is optional and not validated here; never enable it on real data or secrets.
 
-v0.1 remains under its original modules and CLI; v0.2 lives in `investigation.platform`. No source history is removed.
+The active implementation lives in `investigation.platform`. The old v0.1 runtime has been retired; its history and version notes remain available.

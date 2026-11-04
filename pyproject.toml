@@ -11,10 +11,8 @@ dependencies = ["langgraph>=1.0,<2", "pydantic>=2.10,<3", "numpy>=2,<3", "openai
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10"]
-semantic = ["sentence-transformers>=3,<6"]
 
 [project.scripts]
-investigate = "investigation.cli:main"
 payments = "investigation.platform.cli:main"
 
 [tool.setuptools.packages.find]

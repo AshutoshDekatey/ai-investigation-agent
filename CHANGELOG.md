@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.2.0
+- Promoted the platform as the sole active implementation; removed the v0.1 runtime, CLI, fixtures and tests while retaining release history.
 - Added the payment platform API, read-only bank simulator, settlement assessment and authenticated analyst endpoints.
 - Added validated versioned policy ingestion, learned-embedding default, Qdrant/BM25 hybrid retrieval and exact citations.
 - Added PostgreSQL reports, durable LangGraph checkpoints, resume, bounded tool failures and human routing.

@@ -1,0 +1,11 @@
+{
+  "mode": "learned",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "status": "blocked",
+  "adapter_initialization": "failed",
+  "error_type": "ProxyError",
+  "model_host_http_probe": "403 Forbidden on CONNECT to huggingface.co",
+  "semantic_evaluation_executed": false,
+  "live_llm_calls": 0,
+  "note": "Network restriction prevented pretrained model download; no fallback was treated as learned embeddings."
+}

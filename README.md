@@ -1,42 +1,35 @@
-# AI Investigation Agent — v0.1
+# AI Payments Investigation & Decision Support — v0.2
 
-Read-only investigation of disputed **synthetic** banking payments using recorded transaction state and **fictional** policies. Produces evidence-based decision support with uncertainty and mandatory human review. Never sends payments, refunds or retries.
+A fictional banking analyst investigates “money was debited but the merchant did not receive it.” The platform calls a running read-only simulated bank API, compares transaction and settlement evidence, retrieves dated payment policies, and returns a cited recommendation with uncertainty and mandatory human review.
 
-## Quick start
+**No real bank connections, customer data, or financial execution tools exist.** This is a portfolio prototype, not a production adjudication service.
 
-Python 3.11+ and [uv](https://docs.astral.sh/uv/) are required.
+## Start here
+
+Follow the copy-paste [runbook](docs/RUNBOOK.md). Requires Python 3.11+, uv, Docker Compose and about 2 GB for CPU dependencies/model weights. First embedding-model download needs Internet access; after caching, the deterministic investigation workflow requires no paid service.
 
 ```sh
 uv sync --frozen --extra dev
-uv run --frozen investigate PAY-001
-uv run --frozen investigate PAY-002
-uv run --frozen investigate PAY-003
 uv run --frozen --extra dev pytest -q
 ```
 
-IDs: PAY-001 settled, PAY-002 failed, PAY-003 pending, PAY-004 unknown; other IDs return a missing-record escalation. JSON includes `status`, `evidence`, `policy_ids`, `recommendation`, `uncertainty`, `human_review`, `mode` and optional `llm_summary`. Amounts are decimal strings. The snapshot is historical synthetic data, never a live balance or current payment status.
+Core command: `payments investigate SIM-001` after services and ingestion are prepared. `payments retrieve-eval` and `payments evaluate` save quantitative reports. The investigation FastAPI service exposes `/health`, `/docs`, `POST /investigations`, report lookup and checkpoint resume. Requests require an analyst bearer token. Model downloads are not LLM API calls.
 
-## Retrieval and orchestration
+## Implementation
 
-LangGraph runs lookup → retrieval → assessment. Pydantic validates records and reports. SQLite holds embedded policy vectors. Default embeddings normalize a small synonym vocabulary and hash tokens for fully offline, deterministic concept retrieval. This is a limited semantic baseline, not a pretrained encoder. See [architecture](docs/architecture.md) and [v0.1 scope](docs/versions/v0.1.md).
+- Sentence Transformers MiniLM learned embeddings by default, pinned model revision; Qdrant persistent vectors and BM25 combined through reciprocal-rank fusion.
+- 24 current fictional policies, two historical versions, one unapproved adversarial attachment; validated metadata, date filtering, chunk-level exact citations.
+- Nine LangGraph nodes: intake, transaction lookup, ledger lookup, assessment, retrieval, recommendation, verification, human routing, report persistence.
+- Authenticated GET-only banking tools with timeouts, at most two attempts by default, validation and explicit evidence gaps.
+- PostgreSQL reports and LangGraph checkpoints; SQLite and Qdrant embedded mode available for isolated development/tests.
+- Separate opt-in OpenAI-compatible advisory summary integration, usage accounting and bounded live evaluation. No paid calls were made during development.
 
-For optional learned embeddings (downloads model weights; not exercised by offline tests):
+## Verified evidence and limits
 
-```sh
-uv sync --extra semantic --extra dev
-uv run investigate PAY-001 --embeddings sentence-transformers
-```
+See [actual reports](reports/v0.2-test-encoder.json) and [evidence](docs/EVIDENCE.md). The 60-case HTTP/Qdrant/PostgreSQL run uses the **explicit test-only encoder** because Codex network policy blocked Hugging Face. It verifies infrastructure and rules, **not learned semantic quality**. Production defaults never silently fall back to test embeddings. Learned retrieval evaluation and real LLM execution remain unverified.
 
-## Optional real LLM mode
+The benchmark repeats 12 scenario templates five times; it is a regression set, not an independent production accuracy estimate. Human-review routing is implemented; analyst approval UI/execution is not. Cross-encoder reranking is deferred until learned retrieval measurements justify it. Full limitations are in [evaluation](docs/EVALUATION.md).
 
-Default mode makes no API calls. After separately approving costs, set `OPENAI_API_KEY` securely in your shell/environment settings, then explicitly opt in:
+[Architecture](docs/ARCHITECTURE.md) · [setup](docs/SETUP.md) · [RAG design](docs/RAG_DESIGN.md) · [tests](docs/TESTING.md) · [costs](docs/COSTS.md) · [troubleshooting](docs/TROUBLESHOOTING.md) · [v0.2](docs/versions/v0.2.md)
 
-```sh
-uv run investigate PAY-001 --llm --allow-paid-api --model gpt-4.1-mini
-```
-
-Uses the OpenAI Responses API with Pydantic structured summaries. Only synthetic evidence is sent to the API. Model availability depends on your account. The LLM cannot override deterministic decisions; summaries are advisory. Failure adds uncertainty and retains the offline assessment. Never commit API keys. Real API execution and optional model downloads are not claimed as verified by the offline test suite.
-
-## Evaluation
-
-`evals/cases.json` covers successful, failed, pending, unknown and missing transactions. Pytest checks expected policy evidence and recommendations, deterministic repeatability, synonym retrieval, read-only records, policy-missing escalation, fake LLM paths, CLI output and paid-mode opt-in. CI runs the locked offline suite. These fixtures demonstrate behavior, not production accuracy.
+The `payments` CLI is the sole active implementation. The legacy v0.1 runtime, fixtures and `investigate` command have been removed. Earlier releases remain documented in Git history and version notes.

@@ -1,0 +1,1047 @@
+{
+  "SIM-001": {
+    "transaction": {
+      "id": "SIM-001",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-001"
+    },
+    "unavailable": false
+  },
+  "SIM-002": {
+    "transaction": {
+      "id": "SIM-002",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "not_settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-002"
+    },
+    "unavailable": false
+  },
+  "SIM-003": {
+    "transaction": {
+      "id": "SIM-003",
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-003"
+    },
+    "unavailable": false
+  },
+  "SIM-004": {
+    "transaction": {
+      "id": "SIM-004",
+      "status": "timeout",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "unknown",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-004"
+    },
+    "unavailable": false
+  },
+  "SIM-005": {
+    "transaction": {
+      "id": "SIM-005",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 2,
+      "reference": "SYN-LEDGER-SIM-005"
+    },
+    "unavailable": false
+  },
+  "SIM-006": {
+    "transaction": {
+      "id": "SIM-006",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-006"
+    },
+    "unavailable": false
+  },
+  "SIM-007": {
+    "transaction": null,
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-007"
+    },
+    "unavailable": false
+  },
+  "SIM-008": {
+    "transaction": {
+      "id": "SIM-008",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": null,
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-008"
+    },
+    "unavailable": false
+  },
+  "SIM-009": {
+    "transaction": {
+      "id": "SIM-009",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-009"
+    },
+    "unavailable": false
+  },
+  "SIM-010": {
+    "transaction": {
+      "id": "SIM-010",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": "unavailable_topic"
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-010"
+    },
+    "unavailable": false
+  },
+  "SIM-011": {
+    "transaction": {
+      "id": "SIM-011",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-011"
+    },
+    "unavailable": true
+  },
+  "SIM-012": {
+    "transaction": {
+      "id": "SIM-012",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-012"
+    },
+    "unavailable": false
+  },
+  "SIM-013": {
+    "transaction": {
+      "id": "SIM-013",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-013"
+    },
+    "unavailable": false
+  },
+  "SIM-014": {
+    "transaction": {
+      "id": "SIM-014",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "not_settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-014"
+    },
+    "unavailable": false
+  },
+  "SIM-015": {
+    "transaction": {
+      "id": "SIM-015",
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-015"
+    },
+    "unavailable": false
+  },
+  "SIM-016": {
+    "transaction": {
+      "id": "SIM-016",
+      "status": "timeout",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "unknown",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-016"
+    },
+    "unavailable": false
+  },
+  "SIM-017": {
+    "transaction": {
+      "id": "SIM-017",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 2,
+      "reference": "SYN-LEDGER-SIM-017"
+    },
+    "unavailable": false
+  },
+  "SIM-018": {
+    "transaction": {
+      "id": "SIM-018",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-018"
+    },
+    "unavailable": false
+  },
+  "SIM-019": {
+    "transaction": null,
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-019"
+    },
+    "unavailable": false
+  },
+  "SIM-020": {
+    "transaction": {
+      "id": "SIM-020",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": null,
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-020"
+    },
+    "unavailable": false
+  },
+  "SIM-021": {
+    "transaction": {
+      "id": "SIM-021",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-021"
+    },
+    "unavailable": false
+  },
+  "SIM-022": {
+    "transaction": {
+      "id": "SIM-022",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": "unavailable_topic"
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-022"
+    },
+    "unavailable": false
+  },
+  "SIM-023": {
+    "transaction": {
+      "id": "SIM-023",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-023"
+    },
+    "unavailable": true
+  },
+  "SIM-024": {
+    "transaction": {
+      "id": "SIM-024",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-024"
+    },
+    "unavailable": false
+  },
+  "SIM-025": {
+    "transaction": {
+      "id": "SIM-025",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-025"
+    },
+    "unavailable": false
+  },
+  "SIM-026": {
+    "transaction": {
+      "id": "SIM-026",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "not_settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-026"
+    },
+    "unavailable": false
+  },
+  "SIM-027": {
+    "transaction": {
+      "id": "SIM-027",
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-027"
+    },
+    "unavailable": false
+  },
+  "SIM-028": {
+    "transaction": {
+      "id": "SIM-028",
+      "status": "timeout",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "unknown",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-028"
+    },
+    "unavailable": false
+  },
+  "SIM-029": {
+    "transaction": {
+      "id": "SIM-029",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 2,
+      "reference": "SYN-LEDGER-SIM-029"
+    },
+    "unavailable": false
+  },
+  "SIM-030": {
+    "transaction": {
+      "id": "SIM-030",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-030"
+    },
+    "unavailable": false
+  },
+  "SIM-031": {
+    "transaction": null,
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-031"
+    },
+    "unavailable": false
+  },
+  "SIM-032": {
+    "transaction": {
+      "id": "SIM-032",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": null,
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-032"
+    },
+    "unavailable": false
+  },
+  "SIM-033": {
+    "transaction": {
+      "id": "SIM-033",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-033"
+    },
+    "unavailable": false
+  },
+  "SIM-034": {
+    "transaction": {
+      "id": "SIM-034",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": "unavailable_topic"
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-034"
+    },
+    "unavailable": false
+  },
+  "SIM-035": {
+    "transaction": {
+      "id": "SIM-035",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-035"
+    },
+    "unavailable": true
+  },
+  "SIM-036": {
+    "transaction": {
+      "id": "SIM-036",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-036"
+    },
+    "unavailable": false
+  },
+  "SIM-037": {
+    "transaction": {
+      "id": "SIM-037",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-037"
+    },
+    "unavailable": false
+  },
+  "SIM-038": {
+    "transaction": {
+      "id": "SIM-038",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "not_settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-038"
+    },
+    "unavailable": false
+  },
+  "SIM-039": {
+    "transaction": {
+      "id": "SIM-039",
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-039"
+    },
+    "unavailable": false
+  },
+  "SIM-040": {
+    "transaction": {
+      "id": "SIM-040",
+      "status": "timeout",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "unknown",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-040"
+    },
+    "unavailable": false
+  },
+  "SIM-041": {
+    "transaction": {
+      "id": "SIM-041",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 2,
+      "reference": "SYN-LEDGER-SIM-041"
+    },
+    "unavailable": false
+  },
+  "SIM-042": {
+    "transaction": {
+      "id": "SIM-042",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-042"
+    },
+    "unavailable": false
+  },
+  "SIM-043": {
+    "transaction": null,
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-043"
+    },
+    "unavailable": false
+  },
+  "SIM-044": {
+    "transaction": {
+      "id": "SIM-044",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": null,
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-044"
+    },
+    "unavailable": false
+  },
+  "SIM-045": {
+    "transaction": {
+      "id": "SIM-045",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-045"
+    },
+    "unavailable": false
+  },
+  "SIM-046": {
+    "transaction": {
+      "id": "SIM-046",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": "unavailable_topic"
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-046"
+    },
+    "unavailable": false
+  },
+  "SIM-047": {
+    "transaction": {
+      "id": "SIM-047",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-047"
+    },
+    "unavailable": true
+  },
+  "SIM-048": {
+    "transaction": {
+      "id": "SIM-048",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-048"
+    },
+    "unavailable": false
+  },
+  "SIM-049": {
+    "transaction": {
+      "id": "SIM-049",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-049"
+    },
+    "unavailable": false
+  },
+  "SIM-050": {
+    "transaction": {
+      "id": "SIM-050",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "not_settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-050"
+    },
+    "unavailable": false
+  },
+  "SIM-051": {
+    "transaction": {
+      "id": "SIM-051",
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "pending",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-051"
+    },
+    "unavailable": false
+  },
+  "SIM-052": {
+    "transaction": {
+      "id": "SIM-052",
+      "status": "timeout",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "unknown",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-052"
+    },
+    "unavailable": false
+  },
+  "SIM-053": {
+    "transaction": {
+      "id": "SIM-053",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 2,
+      "reference": "SYN-LEDGER-SIM-053"
+    },
+    "unavailable": false
+  },
+  "SIM-054": {
+    "transaction": {
+      "id": "SIM-054",
+      "status": "failed",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-054"
+    },
+    "unavailable": false
+  },
+  "SIM-055": {
+    "transaction": null,
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-055"
+    },
+    "unavailable": false
+  },
+  "SIM-056": {
+    "transaction": {
+      "id": "SIM-056",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": null,
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-056"
+    },
+    "unavailable": false
+  },
+  "SIM-057": {
+    "transaction": {
+      "id": "SIM-057",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-057"
+    },
+    "unavailable": false
+  },
+  "SIM-058": {
+    "transaction": {
+      "id": "SIM-058",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": "unavailable_topic"
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-058"
+    },
+    "unavailable": false
+  },
+  "SIM-059": {
+    "transaction": {
+      "id": "SIM-059",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-059"
+    },
+    "unavailable": true
+  },
+  "SIM-060": {
+    "transaction": {
+      "id": "SIM-060",
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "recorded_at": "2026-11-03T12:00:00Z",
+      "policy_topic": null
+    },
+    "ledger": {
+      "status": "settled",
+      "amount": "100.00",
+      "currency": "GBP",
+      "debit_count": 1,
+      "reference": "SYN-LEDGER-SIM-060"
+    },
+    "unavailable": false
+  }
+}

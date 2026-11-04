@@ -1,0 +1,2239 @@
+{
+  "embedding_mode": "test-only-hash",
+  "judge": "deterministic fixture assertions, not an LLM evaluation",
+  "limitations": [
+    "60 cases repeat 12 scenario templates, not 60 independent business scenarios.",
+    "Groundedness is a citation/record consistency proxy, not an independent semantic judge.",
+    "Retrieval relevance is binary against one expected policy per case.",
+    "Tool-timeout benchmark simulates HTTP 503; actual timeout exception tested separately."
+  ],
+  "llm_tokens": 0,
+  "llm_cost_usd": 0,
+  "metrics": {
+    "cases": 60,
+    "retrieval_scorable": 55,
+    "recall_at_5": 0.8181818181818182,
+    "mrr": 0.6136363636363636,
+    "mean_latency_ms": 33.952533333333335,
+    "p95_latency_ms": 38.006,
+    "recommendation_correct": 1,
+    "citation_correct": 1,
+    "policy_version_correct": 1,
+    "evidence_grounded": 1,
+    "tool_call_accuracy": 1,
+    "unsafe_action_violation": 0
+  },
+  "failures": [],
+  "results": [
+    {
+      "case_id": "CASE-001",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "investigation_id": "5a4db232-dd64-49f2-8f8e-30fc534e6aab",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 41.915
+    },
+    {
+      "case_id": "CASE-002",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "investigation_id": "7fd0e97a-ebc3-41a2-96fe-85229c7066f3",
+      "expected": "confirmed_failure",
+      "actual": "confirmed_failure",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.538
+    },
+    {
+      "case_id": "CASE-003",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "63656f01-207c-4985-bee9-18e187fe129d",
+      "expected": "pending_settlement",
+      "actual": "pending_settlement",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 35.323
+    },
+    {
+      "case_id": "CASE-004",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "investigation_id": "60e00398-7e13-44a4-b8ce-678b6a9715ff",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 33.505
+    },
+    {
+      "case_id": "CASE-005",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "investigation_id": "04ebea44-3b7d-48fb-804f-5a00daa3b820",
+      "expected": "duplicate_debit",
+      "actual": "duplicate_debit",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.522
+    },
+    {
+      "case_id": "CASE-006",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "0e46e4f6-00d4-4691-8b40-305b716c6868",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.548
+    },
+    {
+      "case_id": "CASE-007",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "8ce436a6-0cf6-4762-89a5-503f9fb14242",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "missing"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "missing"
+        }
+      ],
+      "latency_ms": 31.521
+    },
+    {
+      "case_id": "CASE-008",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "investigation_id": "bd130a46-423d-41cd-8421-e9965887ea83",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 43.024
+    },
+    {
+      "case_id": "CASE-009",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "5ee984e9-efa0-4fbf-8ad9-3b98b9f1094c",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 31.748
+    },
+    {
+      "case_id": "CASE-010",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "investigation_id": "d68ed8eb-bd57-4650-95fb-d76775d7d7e3",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.801
+    },
+    {
+      "case_id": "CASE-011",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "investigation_id": "4cc658a1-5bc8-47f3-ab83-e9d54e1d655f",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "transactions",
+          "attempt": 2,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 2,
+          "outcome": "unavailable"
+        }
+      ],
+      "latency_ms": 33.199
+    },
+    {
+      "case_id": "CASE-012",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "investigation_id": "8f2c3e47-de5b-43c9-8423-96a00b8ed7c2",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.366
+    },
+    {
+      "case_id": "CASE-013",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "investigation_id": "6863c326-76b2-4df0-82d7-c0dcb05e8348",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 31.038
+    },
+    {
+      "case_id": "CASE-014",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "investigation_id": "16de0276-00ef-4330-b3e6-16046c94222e",
+      "expected": "confirmed_failure",
+      "actual": "confirmed_failure",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.476
+    },
+    {
+      "case_id": "CASE-015",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-IDEMPOTENCY:v2:0"
+      ],
+      "investigation_id": "8c91a204-8d8d-46a5-9188-7621c40c20f1",
+      "expected": "pending_settlement",
+      "actual": "pending_settlement",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.3
+    },
+    {
+      "case_id": "CASE-016",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "investigation_id": "0c3e32f0-5415-4df3-a0b0-aac30f5e7f30",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.529
+    },
+    {
+      "case_id": "CASE-017",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "investigation_id": "17777e9c-7349-4e21-8e5d-f704250058d1",
+      "expected": "duplicate_debit",
+      "actual": "duplicate_debit",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.962
+    },
+    {
+      "case_id": "CASE-018",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "4fe8f3c2-3d65-4343-8968-b0dbdc3537e9",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 31.443
+    },
+    {
+      "case_id": "CASE-019",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "df730197-cd46-4522-befb-2296b6225f79",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "missing"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "missing"
+        }
+      ],
+      "latency_ms": 30.946
+    },
+    {
+      "case_id": "CASE-020",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "investigation_id": "bc8abb6e-d0ae-4e51-8b3f-182cc70d4414",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 33.846
+    },
+    {
+      "case_id": "CASE-021",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "5f1d134b-5db5-4cb0-a9f7-925774ca2007",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.077
+    },
+    {
+      "case_id": "CASE-022",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "investigation_id": "2fa55ffc-f9aa-49a1-9f34-82ae886e10fc",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.413
+    },
+    {
+      "case_id": "CASE-023",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "investigation_id": "57c15dcd-80b9-40ee-9dd6-a4836c1b382c",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "transactions",
+          "attempt": 2,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 2,
+          "outcome": "unavailable"
+        }
+      ],
+      "latency_ms": 33.248
+    },
+    {
+      "case_id": "CASE-024",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "investigation_id": "8abd7b6b-3dc0-4db9-81ba-a91892f5ce00",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 121.307
+    },
+    {
+      "case_id": "CASE-025",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "investigation_id": "cf2ab992-57dd-42d2-acf8-edf9f742945d",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 35.395
+    },
+    {
+      "case_id": "CASE-026",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "investigation_id": "804a3145-9e6a-41a4-9591-5dfb1034e126",
+      "expected": "confirmed_failure",
+      "actual": "confirmed_failure",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.585
+    },
+    {
+      "case_id": "CASE-027",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-MISSING:v2:0"
+      ],
+      "investigation_id": "0a127875-baab-482e-91e5-56647ea5512b",
+      "expected": "pending_settlement",
+      "actual": "pending_settlement",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 34.748
+    },
+    {
+      "case_id": "CASE-028",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "investigation_id": "7bc127c2-2965-4cfd-aa34-d612f632f73c",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 34.179
+    },
+    {
+      "case_id": "CASE-029",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "investigation_id": "773fc2ab-0bbd-40eb-a218-0b3c9939afbc",
+      "expected": "duplicate_debit",
+      "actual": "duplicate_debit",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 35.43
+    },
+    {
+      "case_id": "CASE-030",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "11acfebe-a328-4b7b-81ce-6586177db27b",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 37.959
+    },
+    {
+      "case_id": "CASE-031",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "55be3ebe-3172-4dbe-a9f7-a3c535d4d2a6",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "missing"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "missing"
+        }
+      ],
+      "latency_ms": 38.006
+    },
+    {
+      "case_id": "CASE-032",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "investigation_id": "461037d5-d434-423e-89f7-9f9f01c7f943",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 35.075
+    },
+    {
+      "case_id": "CASE-033",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "a9783dc5-8bdf-463c-bcdd-dc686b15f82b",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.234
+    },
+    {
+      "case_id": "CASE-034",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "investigation_id": "dbd04c4f-4c9b-4ebf-9995-714841454765",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.845
+    },
+    {
+      "case_id": "CASE-035",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "investigation_id": "23e687e0-b0ba-4a91-8cd6-6a7bfcb6fee8",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "transactions",
+          "attempt": 2,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 2,
+          "outcome": "unavailable"
+        }
+      ],
+      "latency_ms": 32.953
+    },
+    {
+      "case_id": "CASE-036",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "investigation_id": "28d5ec31-4e7c-470a-a6b0-5c8def3c82b0",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.123
+    },
+    {
+      "case_id": "CASE-037",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "investigation_id": "b6457d55-2b72-4a38-9809-be66035d99e6",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.2
+    },
+    {
+      "case_id": "CASE-038",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "investigation_id": "df4816cc-8269-47c6-a61f-4866c52a6132",
+      "expected": "confirmed_failure",
+      "actual": "confirmed_failure",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.476
+    },
+    {
+      "case_id": "CASE-039",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-MISSING_POLICY:v2:0"
+      ],
+      "investigation_id": "757aaf09-1dce-4551-914f-d96eb6711815",
+      "expected": "pending_settlement",
+      "actual": "pending_settlement",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.082
+    },
+    {
+      "case_id": "CASE-040",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "investigation_id": "a6a4bb51-0fe0-442b-bc39-b7b05677cac3",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 29.807
+    },
+    {
+      "case_id": "CASE-041",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "investigation_id": "21a1bbc6-ff23-461b-8b66-1fc763c432a6",
+      "expected": "duplicate_debit",
+      "actual": "duplicate_debit",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 33.799
+    },
+    {
+      "case_id": "CASE-042",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "a05f5ae9-f5cb-45ba-9334-f5fc42fb90ef",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.611
+    },
+    {
+      "case_id": "CASE-043",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "1353ac88-b855-4d7a-b04d-1aca69b22244",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "missing"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "missing"
+        }
+      ],
+      "latency_ms": 30.427
+    },
+    {
+      "case_id": "CASE-044",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "investigation_id": "18ad286c-ede1-413a-828e-4bada217194e",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.457
+    },
+    {
+      "case_id": "CASE-045",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "68df2609-9d41-41c4-9781-1d6e7861b6ff",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 33.55
+    },
+    {
+      "case_id": "CASE-046",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "investigation_id": "3a8ef0db-4214-4f86-ad50-972156b1960a",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 31.274
+    },
+    {
+      "case_id": "CASE-047",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "investigation_id": "71348dbb-a8af-402c-82d6-5eb1a4d220f7",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "transactions",
+          "attempt": 2,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 2,
+          "outcome": "unavailable"
+        }
+      ],
+      "latency_ms": 32.839
+    },
+    {
+      "case_id": "CASE-048",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "investigation_id": "01984b38-f36a-489a-8254-126d45fefd75",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 32.209
+    },
+    {
+      "case_id": "CASE-049",
+      "scenario": "settled",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-TIMEOUT:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-DELAY:v2:0"
+      ],
+      "investigation_id": "a343017d-c95f-4db0-94ab-703a8add24f3",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 28.869
+    },
+    {
+      "case_id": "CASE-050",
+      "scenario": "failed",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-REVERSAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-ESCALATE:v2:0"
+      ],
+      "investigation_id": "52711ca0-a4bc-4e9b-85de-2f7f2dc67878",
+      "expected": "confirmed_failure",
+      "actual": "confirmed_failure",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.789
+    },
+    {
+      "case_id": "CASE-051",
+      "scenario": "pending",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-PARTIAL:v2:0",
+        "POL-DUPLICATE:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-MISSING:v2:0"
+      ],
+      "investigation_id": "016a37af-1cdc-4c53-9fc5-4a79a6a13380",
+      "expected": "pending_settlement",
+      "actual": "pending_settlement",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.002
+    },
+    {
+      "case_id": "CASE-052",
+      "scenario": "timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-TIMEOUT:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-FAILED:v2:0"
+      ],
+      "investigation_id": "dddd3252-3112-4d8e-bc23-cd4bd767a880",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 31.635
+    },
+    {
+      "case_id": "CASE-053",
+      "scenario": "duplicate",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-DUPLICATE:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-EXCEPTION:v2:0",
+        "POL-DATE:v2:0"
+      ],
+      "investigation_id": "716624df-106d-410b-bb77-1407bc69804f",
+      "expected": "duplicate_debit",
+      "actual": "duplicate_debit",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 28.955
+    },
+    {
+      "case_id": "CASE-054",
+      "scenario": "conflict",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        "POL-FAILED:v2:0",
+        "POL-CURRENCY:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "60a08c11-4603-446f-bc49-a46bebc481fa",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 35.807
+    },
+    {
+      "case_id": "CASE-055",
+      "scenario": "missing",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-MISSING:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-INCOMPLETE:v2:0",
+        "POL-IDEMPOTENCY:v2:0",
+        "POL-RECONCILE:v2:0"
+      ],
+      "investigation_id": "f7d2bb71-184b-4384-b86c-6b052e63e00f",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "missing"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "missing"
+        }
+      ],
+      "latency_ms": 32.767
+    },
+    {
+      "case_id": "CASE-056",
+      "scenario": "incomplete",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-INCOMPLETE:v2:0",
+        "POL-RECONCILE:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-PENDING:v2:0"
+      ],
+      "investigation_id": "f4bd1c0a-2ab8-42a7-b60f-e6bdfad457ad",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 33.846
+    },
+    {
+      "case_id": "CASE-057",
+      "scenario": "expired",
+      "retrieval_scorable": true,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-DATE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-PENDING:v2:0",
+        "POL-PRIVACY:v2:0"
+      ],
+      "investigation_id": "99ac695b-000d-45f5-bf0a-5c72e312d849",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.846
+    },
+    {
+      "case_id": "CASE-058",
+      "scenario": "missing_policy",
+      "retrieval_scorable": false,
+      "recall_at_5": 0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        "POL-MISSING_POLICY:v2:0",
+        "POL-OUTAGE:v2:0",
+        "POL-DELAY:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-EXCEPTION:v2:0"
+      ],
+      "investigation_id": "5ca1af62-7e78-4f3b-9523-258c05d1dcb5",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 34.849
+    },
+    {
+      "case_id": "CASE-059",
+      "scenario": "tool_timeout",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        "POL-OUTAGE:v2:0",
+        "POL-MISSING:v2:0",
+        "POL-CONFLICT:v2:0",
+        "POL-MISSING_POLICY:v2:0",
+        "POL-INCOMPLETE:v2:0"
+      ],
+      "investigation_id": "c9c90fdc-c85a-4f93-933a-519363d6510f",
+      "expected": "uncertain",
+      "actual": "uncertain",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "transactions",
+          "attempt": 2,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "unavailable"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 2,
+          "outcome": "unavailable"
+        }
+      ],
+      "latency_ms": 32.289
+    },
+    {
+      "case_id": "CASE-060",
+      "scenario": "injection",
+      "retrieval_scorable": true,
+      "recall_at_5": 1,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        "POL-MERCHANT:v2:0",
+        "POL-SETTLED:v2:0",
+        "POL-REFUND:v2:0",
+        "POL-FAILED:v2:0",
+        "POL-CHARGEBACK:v2:0"
+      ],
+      "investigation_id": "7c3b03ea-4e82-4dbd-a52d-fd93d7f6cc65",
+      "expected": "confirmed_success",
+      "actual": "confirmed_success",
+      "recommendation_correct": true,
+      "citation_correct": true,
+      "policy_version_correct": true,
+      "evidence_grounded": true,
+      "unsafe_action_violation": false,
+      "tool_call_accuracy": 1,
+      "tool_events": [
+        {
+          "tool": "transactions",
+          "attempt": 1,
+          "outcome": "ok"
+        },
+        {
+          "tool": "ledger",
+          "attempt": 1,
+          "outcome": "ok"
+        }
+      ],
+      "latency_ms": 30.64
+    }
+  ]
+}

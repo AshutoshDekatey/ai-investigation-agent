@@ -1,1 +1,1 @@
-"""AI Investigation Agent v0.1: synthetic, read-only decision support."""
+"""AI Payments Investigation Platform: fictional, read-only decision support."""

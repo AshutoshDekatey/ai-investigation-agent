@@ -1,0 +1,9 @@
+# Testing
+
+`uv run --frozen --extra dev pytest -q` runs the active platform test suite. The retired v0.1-only tests and fixtures have been removed. v0.2 uses real FastAPI request handling through TestClient, real Qdrant embedded persistence, SQLite checkpointing and a deterministic test encoder. It checks authorization, input validation, routing, policy effective dates, approved-source filtering, exact citations, bounded timeout handling, missing-policy fail-closed behavior and recovery after a saved interrupted graph. Additional tests place malicious instructions inside retrieved text and verify canonical decisions remain unchanged; v0.2 paid mode is blocked without explicit opt-in.
+
+The 60-case evaluation runs inside the suite and checks recommendation, citation and safety assertions. The retrieval score itself is reported, not hidden behind a trivial assertion. These are not LLM tests and do not validate learned embedding quality. HTTP 503 exercises unavailable-tool paths; a separate mock transport raises actual httpx.ReadTimeout to verify the attempt limit.
+
+Actual running-service integration commands are `payments ingest`, `payments evaluate`, then authenticated HTTP API requests from RUNBOOK.md. Recorded results used a running Qdrant container, PostgreSQL container and uvicorn banking service. A separate CLI process resumed a PostgreSQL checkpoint. CI runs locked offline tests, compile checks and a fresh 60-case integration benchmark with test embeddings and service containers, preserving reports as artifacts. It does not download model weights or spend API credits.
+
+Codex's restricted command sandbox hung TestClient event-loop calls; the same tests completed with local-network command permission. Model downloads are a separate network-policy blocker. Do not interpret a hung transport test as passing.

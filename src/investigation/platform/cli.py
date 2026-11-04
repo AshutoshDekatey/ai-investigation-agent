@@ -31,7 +31,7 @@ def main():
         else:
             cases=json.loads(Path(args.cases).read_text())
             if args.command=="live-eval":
-                from .llm import summarize
+                from .llm import summarize, safe_error
                 results=[]
                 for case in cases[:args.limit]:
                     report=engine.run(Intake(transaction_id=case["transaction_id"],question=case["query"]))
@@ -41,7 +41,7 @@ def main():
                         llm["cost_usd"]=(usage["prompt_tokens"]*args.input_usd_per_million+usage["completion_tokens"]*args.output_usd_per_million)/1_000_000
                         report["llm"]=llm
                     except Exception as exc:
-                        report["llm"]={"error_type":type(exc).__name__,"cost_usd":None}
+                        report["llm"]=safe_error(exc)
                     results.append(report)
                 result={"mode":"live-llm","results":results,"note":"Advisory summaries; not independently judged or guaranteed grounded."}
             else:

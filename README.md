@@ -22,11 +22,11 @@ Core command: `payments investigate SIM-001` after services and ingestion are pr
 - Nine LangGraph nodes: intake, transaction lookup, ledger lookup, assessment, retrieval, recommendation, verification, human routing, report persistence.
 - Authenticated GET-only banking tools with timeouts, at most two attempts by default, validation and explicit evidence gaps.
 - PostgreSQL reports and LangGraph checkpoints; SQLite and Qdrant embedded mode available for isolated development/tests.
-- Separate opt-in OpenAI-compatible advisory summary integration, usage accounting and bounded live evaluation. No paid calls were made during development.
+- Separate opt-in OpenAI-compatible advisory summary integration, usage accounting and bounded live evaluation. A user-reported local run successfully produced one live summary; see the evidence below.
 
 ## Verified evidence and limits
 
-See [actual reports](reports/v0.2-test-encoder.json) and [evidence](docs/EVIDENCE.md). The 60-case HTTP/Qdrant/PostgreSQL run uses the **explicit test-only encoder** because Codex network policy blocked Hugging Face. It verifies infrastructure and rules, **not learned semantic quality**. Production defaults never silently fall back to test embeddings. Learned retrieval evaluation and real LLM execution remain unverified.
+See [actual reports](reports/v0.2-test-encoder.json) and [evidence](docs/EVIDENCE.md). The 60-case HTTP/Qdrant/PostgreSQL run uses the **explicit test-only encoder** because Codex network policy blocked Hugging Face. It verifies infrastructure and rules, **not learned semantic quality**. Production defaults never silently fall back to test embeddings. A subsequent user-reported local OpenAI run returned one successful advisory summary: 824 input + 155 output tokens, estimated $0.0001599 at supplied rates. See the [recorded live result](reports/live-summary-user-reported.json). Learned retrieval quality and broader LLM accuracy remain unverified.
 
 The benchmark repeats 12 scenario templates five times; it is a regression set, not an independent production accuracy estimate. Human-review routing is implemented; analyst approval UI/execution is not. Cross-encoder reranking is deferred until learned retrieval measurements justify it. Full limitations are in [evaluation](docs/EVALUATION.md).
 

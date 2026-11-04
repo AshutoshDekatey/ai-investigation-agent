@@ -1,0 +1,43 @@
+{
+  "provenance": {
+    "source": "User-pasted output from a local WSL run; not independently rerun by Codex",
+    "reported_date": "2026-11-04",
+    "original_file": "reports/openai-luna-retry.json"
+  },
+  "scope": "One successful live OpenAI-compatible advisory summary; not a full LLM evaluation or retrieval-quality benchmark",
+  "transaction_id": "SIM-001",
+  "llm": {
+    "summary": "Fictional records for transaction SIM-001 show a settled payment of GBP 100.00 and one matching settled ledger debit for GBP 100.00. Under the supplied fictional policy, the matching records support recorded success, but do not verify that the merchant received the funds. Merchant nonreceipt should be investigated separately. No refund or retry is authorized in the supplied recommendation. The records are fictional, live balances and merchant receipt are unverified, and human review is required.",
+    "advisory_unverified": true,
+    "model": "gpt-6-luna",
+    "usage": {
+      "completion_tokens": 155,
+      "prompt_tokens": 824,
+      "total_tokens": 979,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 44,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "cost_usd": 0.0001599,
+    "cost_note": "Estimate using user-supplied input/output rates; not independently reconciled against provider billing."
+  },
+  "rates_usd_per_million": {
+    "input": 0.1,
+    "output": 0.5
+  },
+  "limitations": [
+    "Only the pasted LLM section was supplied, not the complete investigation report.",
+    "Model name and token usage are recorded as reported by the user.",
+    "Reasoning tokens are included in completion tokens, not added again.",
+    "User reported downloading Sentence Transformers weights; no learned-retrieval benchmark report was supplied.",
+    "No additional paid calls were made by Codex to document this result."
+  ]
+}

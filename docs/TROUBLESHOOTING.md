@@ -11,3 +11,7 @@
 - TestClient hangs in restricted Codex command sandbox: run tests with local-network permission. Do not leave timed-out tests running.
 - Git push works but gh PR creation says Forbidden: GitHub API access differs from Git proxy access; allow api.github.com in environment settings, or open a PR through the comparison link. Never request/extract proxy-held credentials.
 - Live provider error: check endpoint, model availability and structured JSON support; record error types, not secrets or raw credential-bearing exception text. Paid failures can still incur costs.
+
+## OpenAI request rejection
+
+A successful model metadata lookup establishes model availability, not support for all generation parameters. The compatibility fix uses `max_completion_tokens=400` instead of the legacy `max_tokens`. If a live request is rejected, inspect `http_status`, `error_code`, `error_param` and redacted `error_message` in the saved LLM result. Do not repeatedly retry unknown failures. JSON-object support and sufficient completion budget still depend on the selected provider/model. A 400-token completion budget can include reasoning tokens on models that use them, leaving fewer tokens for visible JSON. No live execution of this fix has been verified.

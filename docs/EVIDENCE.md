@@ -39,3 +39,7 @@ The report retains per-case rankings, tool events, expected/actual outcome and f
 - Prototype policies are concise and fixtures correlated. This is not production accuracy, banking compliance, comprehensive DLP, tenant isolation or completed analyst approvals.
 
 Environment publication is separate from the user-authorized Git merge. See RUNBOOK.md for exact reproduction and the remaining learned/live verification commands.
+
+## Subsequent LLM compatibility fix
+
+The compatibility branch has **21 passing offline tests**, including mocked SDK request/usage validation, provider diagnostic redaction and one-case CLI failure handling without retries. The request now uses `max_completion_tokens=400`. This does not establish the cause of a user's earlier generic BadRequestError or prove compatibility with a live model. No additional paid calls were made.

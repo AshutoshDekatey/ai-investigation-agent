@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Record a user-reported successful local OpenAI summary with provenance, actual token usage and an estimated cost of $0.0001599 at supplied prices; no new paid calls were made.
 - Use `max_completion_tokens` for optional Chat Completions summaries, retaining a 400-token budget and zero automatic retries.
 - Record selected provider error status/code/parameter/message with credential redaction instead of hiding the reason behind `BadRequestError`.
 - Add mocked SDK and CLI diagnostic tests; no live model compatibility or paid calls are claimed.
